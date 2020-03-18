@@ -1,4 +1,3 @@
-
 Promise.all([
   faceapi.nets.faceExpressionNet.loadFromUri('models'),
   faceapi.nets.tinyFaceDetector.loadFromUri('models')
@@ -6,12 +5,12 @@ Promise.all([
 
 
 function startVideo() {
-  document.querySelector('button').addEventListener('click', async (e) => {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: true
-    })
-    document.querySelector('video').srcObject = stream
- })
+
+    navigator.getUserMedia(
+        { video: {} },
+        stream => video.srcObject = stream,
+        err => console.error(err)
+    )
 }
 
 let phrase = document.createElement('phrase');
